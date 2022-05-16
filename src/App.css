@@ -1,0 +1,261 @@
+@import "./fonts/inter-cufonfonts-webfont/style.css";
+
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("./fonts/FontsFree-Net-SFProDisplay-Regular.ttf");
+  font-display: swap
+}
+
+ul {
+  list-style: none;
+}
+
+.rides-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  align-content: center;
+  width: 100%;
+  flex-flow: row-reverse;
+}
+
+.padding {
+  padding-inline: 40px;
+  padding-block: 20px;
+}
+
+p.user-name {
+  font-family: "Inter Regular";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: rgb(255, 255, 255);
+  margin-inline-end: 25px;
+}
+
+.tab {
+  color: #d0cbcb;
+  margin-right: 44px;
+  padding-block: 6px;
+}
+
+.tab.active {
+  color: #ffffff;
+  border-bottom: 2px solid;
+}
+
+div.image {
+  padding: 2px 0px 6px 7px;
+}
+
+.ride-text {
+  margin-left: 44px;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  align-content: center;
+  flex-direction: row;
+  width: calc(100% - 360px);
+  align-items: baseline;
+}
+
+.ride-text .ride-data {
+  font-family: "Inter Regular";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  margin-bottom: 8px;
+
+  color: #cfcfcf;
+}
+
+.ride-data span {
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.ride-data:last-of-type {
+  margin-bottom: 0;
+}
+
+.ride-location:first-of-type {
+  margin-inline: 24px;
+}
+
+.ride-location {
+  font-family: "Inter Regular";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  /* identical to box height */
+
+  color: #ffffff;
+
+  padding: 4px 10px;
+  text-align: center;
+  background: #0000008f;
+  border-radius: 16px;
+  margin-bottom: 10px;
+}
+
+.ride-locations {
+  display: flex;
+  align-items: baseline;
+  flex-flow: wrap;
+  justify-content: flex-end;
+  margin-left: 12px;
+  justify-content: center;
+  text-align: center;
+}
+
+button.filter-button {
+  padding: 4px;
+  font-family: "Inter Regular";
+  font-style: normal;
+  font-weight: 100;
+  font-size: 16px;
+  line-height: 19px;
+  color: rgb(242, 242, 242);
+}
+
+/* Start Filter */
+
+.filter {
+  padding: 20px 35px;
+  background: #131313;
+  border-radius: 30px;
+  width: 230px;
+}
+
+.filter-heading {
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 24px;
+  /* identical to box height */
+
+  color: #a5a5a5;
+}
+
+.filter-break {
+  border: none;
+  height: 1.2px;
+  background: #a5a5a5;
+  border-radius: 5px;
+  margin-block: 15px;
+}
+
+button.sButton {
+  justify-content: space-between;
+  text-transform: capitalize;
+  border-radius: 4.68775px;
+  z-index: 10;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 20px;
+  color: #ffffff;
+
+  background: rgb(35, 35, 35);
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 8px 12px;
+}
+
+.filter-container {
+  display: none;
+}
+
+.filter-container.open {
+  background: #131313;
+  border-radius: 15px;
+  margin-left: 10px;
+  display: block;
+}
+/* End Filter */
+
+@media (max-width: 900px) {
+  .rides-container {
+    align-items: self-start;
+    margin-top: 24px;
+    flex-flow: column;
+  }
+  .filter-container.open {
+    margin-left: 0;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  .filter {
+    width: 100%;
+  }
+  .ride-text {
+    margin-left: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  div.ride {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+  }
+
+  div.image {
+    padding: 0;
+  }
+  .ride-text {
+    width: 100%;
+    margin-left: 0px;
+    margin-top: 10px;
+  }
+
+  .ride-location:first-of-type {
+    margin-inline: 12px;
+  }
+
+  .filter-button {
+    margin-top: 10px;
+    padding-inline: 4px;
+  }
+}
+
+@media (max-width: 468px) {
+  button.tab {
+    margin-right: 20px;
+  }
+
+  p.user-name {
+    font-size: 16px;
+    line-height: 20px;
+    margin-inline: 10px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 320px) {
+  .padding {
+    padding: 15px;
+  }
+
+  .rides-categories {
+    width: 100%;
+  }
+}
+
+@media (max-width: 624px) {
+  .padding {
+    padding: 25px;
+  }
+  .ride-locations {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    justify-content: flex-start;
+    height: fit-content;
+  }
+}
