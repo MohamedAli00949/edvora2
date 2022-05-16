@@ -15,7 +15,7 @@ const renderLoader = () => <p>Loading...</p>;
 function RidesContainer() {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
-  const { isLoading, nearest, upcaming, past } = useSelector((state) => state.rides);
+  const { isLoading, nearest, upcoming, past } = useSelector((state) => state.rides);
   const rides = useSelector((state) => state.rides)
   const [activeRides, setActiveRides] = useState("nearest");
 
@@ -55,7 +55,7 @@ function RidesContainer() {
           alignContent: "center",
         }}>
           <button className="tab active" id="nearest" onClick={(e) => toggleActiveTab(e)}>Nearest rides</button>
-          <button className="tab" id="upcoming" onClick={(e) => toggleActiveTab(e)}>Upcoming rides {`(${upcaming.length})`}</button>
+          <button className="tab" id="upcoming" onClick={(e) => toggleActiveTab(e)}>Upcoming rides {`(${upcoming.length})`}</button>
           <button className="tab" id="past" onClick={(e) => toggleActiveTab(e)}>Past rides {`(${past.length})`}</button>
         </div>
         <Button className="filter-button" style={{
@@ -83,12 +83,14 @@ function RidesContainer() {
               <Rides id={activeRides} rides={nearest.sort((a, b) => a.distance - b.distance)} />
             </Suspense>
           ) : (
-            <>{activeRides === "upcaming" ? (
+            <>{activeRides === "upcoming" ? (
               <Suspense fallback={renderLoader()}>
-                <Rides id={activeRides} rides={rides.upcaming} />
+                <Rides id="upcoming" rides={rides.upcoming} />
               </Suspense>
             ) : (
-              <Rides id={activeRides} rides={rides.past} />
+              <Suspense fallback={renderLoader()}>
+                <Rides id={activeRides} rides={rides.past} />
+              </Suspense>
             )}</>
           )}
         </div>

@@ -1,6 +1,6 @@
 import { START_LOADING, END_LOADING, GET_RIDES, FILTER_STATE, FILTER_CITY } from './../utils/actions';
 
-const rides = (state = { nearest: [], upcaming: [], past: [], cities: [], states: [], selectedStates: [], isLoading: true, all: [], }, action) => {
+const rides = (state = { nearest: [], upcoming: [], past: [], cities: [], states: [], selectedStates: [], isLoading: true, all: [], }, action) => {
     const values = action.data;
     let data = state.all;
     let nearest = [];
@@ -49,7 +49,7 @@ const rides = (state = { nearest: [], upcaming: [], past: [], cities: [], states
                 }
             })
 
-            return { ...state, all: rides, nearest: rides.filter((r) => r.distance >= 0), upcaming: upcoming, past: past, cities: cities.sort(), states: rStates, selectedStates: rStates };
+            return { ...state, all: rides, nearest: rides.filter((r) => r.distance >= 0), upcoming: upcoming, past: past, cities: cities.sort(), states: rStates, selectedStates: rStates };
         case FILTER_STATE:
             let citiesFilter = state.states.filter(s => values.includes(s.value)).map((rS) => rS.cities).flat().sort();
             if (values.length !== 0) {
@@ -81,7 +81,7 @@ const rides = (state = { nearest: [], upcaming: [], past: [], cities: [], states
                 })
             }
 
-            return { ...state, cities: citiesFilter, selectedStates: values.length > 0 ? state.states.filter(state => values.includes(state.value)) : state.states, nearest: nearest.filter((r) => r.distance >= 0), upcaming: upcoming, past: past };
+            return { ...state, cities: citiesFilter, selectedStates: values.length > 0 ? state.states.filter(state => values.includes(state.value)) : state.states, nearest: nearest.filter((r) => r.distance >= 0), upcoming: upcoming, past: past };
         case FILTER_CITY:
             if (values.length !== 0) {
                 nearest = data.filter((ride) => values.includes(ride.city)).map((ride) => {
@@ -108,7 +108,7 @@ const rides = (state = { nearest: [], upcaming: [], past: [], cities: [], states
                 })
             }
 
-            return { ...state, nearest: nearest.filter((r) => r.distance >= 0), upcaming: upcoming, past: past };
+            return { ...state, nearest: nearest.filter((r) => r.distance >= 0), upcoming: upcoming, past: past };
         default:
             return state;
     }

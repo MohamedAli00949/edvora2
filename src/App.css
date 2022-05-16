@@ -6,6 +6,11 @@
   font-display: swap
 }
 
+body {
+  min-height: 100vh;
+  background: #292929;
+}
+
 ul {
   list-style: none;
 }
@@ -13,7 +18,7 @@ ul {
 .rides-container {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   align-content: center;
   width: 100%;
   flex-flow: row-reverse;

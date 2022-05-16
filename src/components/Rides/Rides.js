@@ -11,7 +11,7 @@ function Rides({ id }) {
     return (
         <>
             {rides[id]?.length === 0 ? (
-                <Text>Not found</Text>
+                <Text style={{fontSize: "25px", fontWeight: "bold"}}>Not found</Text>
             ) : (
                 <ul style={{ width: "100%", paddingInline: "3px" }}>
                     {rides[id]?.map((ride, index) => (
